@@ -14,6 +14,9 @@ proc handle_client_connection {sock} {
 			-ssl2 0 \
 			-ssl3 0 \
 			-tls1 1 \
+			-tls1.1 1 \
+			-tls1.2 1 \
+			-tls1.3 1 \
 			-server 1 \
 			-certfile $::params(certfile) \
 			-keyfile $::params(keyfile)

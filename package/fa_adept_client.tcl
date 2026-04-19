@@ -216,6 +216,9 @@ set caDir [file join [file dirname [info script]] "ca"]
 						-ssl2 0 \
 						-ssl3 0 \
 						-tls1 1 \
+						-tls1.1 1 \
+						-tls1.2 1 \
+						-tls1.3 1 \
 						-require 1 \
 						-command [list $this tls_callback]} catchResult] == 1} {
 			logger "TLS initialization with adept server at $host/$port failed: $catchResult"
