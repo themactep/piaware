@@ -14,7 +14,7 @@ install: pkgIndex.tcl
 	install -d $(DESTDIR)$(LIB) $(DESTDIR)$(LIB)/ca
 	install $(FILES) pkgIndex.tcl $(DESTDIR)$(LIB)
 	install ca/*.pem $(DESTDIR)$(LIB)/ca
-	c_rehash $(DESTDIR)$(LIB)/ca
+	if which c_rehash >/dev/null; then c_rehash $(DESTDIR)$(LIB)/ca; else openssl rehash $(DESTDIR)$(LIB)/ca; fi
 	$(MAKE) -C helpers install
 	$(MAKE) -C fa_adept_codec install
 
